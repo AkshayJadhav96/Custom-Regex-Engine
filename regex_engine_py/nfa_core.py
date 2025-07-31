@@ -12,4 +12,3 @@ class NFA:
         self.start = start
         self.accept = accept
     
-
