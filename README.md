@@ -60,7 +60,7 @@ The engine follows the classic compiler theory pipeline to process regex pattern
 ### Build Steps
 From the root directory of the project:
 ```bash
-# 1. Create a build directory
+# 1. Create a build directory delete the one you cloned from this github
 mkdir build
 cd build
 
