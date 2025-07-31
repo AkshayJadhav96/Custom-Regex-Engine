@@ -22,7 +22,29 @@ The engine supports the following core regex operators:
 
 ## How It Works
 
-The engine follows the classic compiler theory pipeline to process regex patterns:
+The engine follows a classical multi-stage pipeline to parse and evaluate regex patterns.
+
+```
+Regex Pattern
+     │
+     ▼
+[1] Tokenization
+     │
+     ▼
+[2] Infix → Postfix (Shunting-yard)
+     │
+     ▼
+[3] AST Construction
+     │
+     ▼
+[4] NFA Construction (Thompson's Construction)
+     │
+     ▼
+[5] NFA Simulation
+     │
+     ▼
+  Match / No Match
+```
 
 1.  **Tokenization**: The input regex string is scanned and converted into a sequence of tokens. Implicit concatenation operators (`.`) are inserted where needed (e.g., `ab` becomes `a.b`).
 
@@ -90,4 +112,9 @@ cd regex_engine_python
 python main.py
 ```
 
+## Future Improvements
+- Implement DFA conversion (Subset Construction) and minimization (Hopcroft's algorithm) for improved matching performance.
 
+- Add support for more advanced features like character classes (\d, \w) and anchors (^, $).
+
+- Add support for capture groups to extract matched substrings.
